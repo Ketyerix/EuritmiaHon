@@ -57,9 +57,11 @@ const Hero: React.FC = () => {
     const isRightSwipe = distance < -minSwipeDistance;
 
     if (isLeftSwipe) {
-      nextSlide();
-    } else if (isRightSwipe) {
+      // User requested: Left swipe behaves like clicking the left image (Previous Slide)
       prevSlide();
+    } else if (isRightSwipe) {
+      // User requested: Right swipe behaves like clicking the right image (Next Slide)
+      nextSlide();
     }
 
     // Reset and resume auto-rotation

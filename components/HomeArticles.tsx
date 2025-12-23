@@ -38,9 +38,8 @@ const HomeArticles: React.FC = () => {
             >
               {HOME_ARTICLES.map((article, index) => {
                 const isLinkCard = article.isList;
-                const displayContent = isLinkCard
-                  ? article.content.split('\n')
-                  : article.content;
+                // Create a text-only preview from HTML content
+                const previewText = article.content.replace(/<[^>]+>/g, '').slice(0, 150) + '...';
 
                 return (
                   <motion.div
@@ -71,21 +70,16 @@ const HomeArticles: React.FC = () => {
                       </motion.h3>
 
                       {isLinkCard ? (
-                        <ul className="space-y-4 font-sans text-charcoal/80 font-medium mb-4 w-full">
-                          {Array.isArray(displayContent) && displayContent.map((linkText, i) => (
-                            <li key={i}>
-                              <a href="#" className="hover:underline hover:text-earthDark transition-colors block p-1">
-                                {linkText} ↗
-                              </a>
-                            </li>
-                          ))}
-                        </ul>
+                        <div
+                          className="w-full"
+                          dangerouslySetInnerHTML={{ __html: article.content }}
+                        />
                       ) : (
                         <motion.p
                           layoutId={`excerpt-${index}`}
                           className="text-charcoal/70 font-sans leading-relaxed text-sm md:text-base line-clamp-4"
                         >
-                          {typeof displayContent === 'string' ? displayContent : ''}
+                          {previewText}
                         </motion.p>
                       )}
                     </div>
@@ -140,9 +134,7 @@ const HomeArticles: React.FC = () => {
                 </motion.h2>
 
                 <div className="text-charcoal/80 font-sans leading-relaxed space-y-4 text-base md:text-lg">
-                  {selectedArticle.content.split('\n').map((paragraph, i) => (
-                    <p key={i} className="whitespace-pre-line">{paragraph}</p>
-                  ))}
+                  <div dangerouslySetInnerHTML={{ __html: selectedArticle.content }} />
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-stone-200 flex justify-center">

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../constants';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Home } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Kezdőlap');
-  const [hasToggled, setHasToggled] = useState(false);
 
   useEffect(() => {
     // Scroll handler only for transparency effect
@@ -97,11 +96,6 @@ const Navbar: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-    setHasToggled(true);
-  };
-
   return (
     <>
       <nav
@@ -119,20 +113,7 @@ const Navbar: React.FC = () => {
           className="md:hidden text-charcoal z-50 hover:text-earth transition-colors relative p-1"
           aria-label="Back to top"
         >
-          {/* Built-in SVG Shape (House) */}
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
-          </svg>
+          <Home size={28} strokeWidth={1.5} />
         </a>
 
         {/* Desktop Menu */}
@@ -158,7 +139,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu Button - Right Side */}
         <button
           className="md:hidden text-charcoal z-50 relative p-1 hover:bg-black/5 rounded-full transition-colors"
-          onClick={toggleMenu}
+          onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
@@ -167,9 +148,8 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay - Rolls down from top */}
       <div
-        className={`fixed inset-0 z-40 bg-paper flex flex-col items-center justify-center md:hidden ${hasToggled ? 'transition-transform duration-700 ease-in-out' : ''
-          } ${isOpen ? 'translate-y-0' : '-translate-y-full'
-          }`}
+        className="fixed inset-0 z-40 bg-paper flex flex-col items-center justify-center transition-transform duration-700 ease-in-out md:hidden"
+        style={{ transform: isOpen ? 'translateY(0)' : 'translateY(-100%)' }}
       >
         <ul className="space-y-8 text-center">
           {NAV_LINKS.map((link, index) => (
