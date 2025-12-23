@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { HOME_ARTICLES } from '../constants';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -25,7 +25,7 @@ const HomeArticles: React.FC = () => {
           </h2>
           <div className="w-24 h-1 bg-earth mx-auto rounded-full mb-8" />
         </div>
-        
+
         <AnimatePresence mode="wait">
           {!selectedArticle ? (
             <motion.div
@@ -38,15 +38,15 @@ const HomeArticles: React.FC = () => {
             >
               {HOME_ARTICLES.map((article, index) => {
                 const isLinkCard = article.isList;
-                const displayContent = isLinkCard 
-                  ? article.content.split('\n') 
+                const displayContent = isLinkCard
+                  ? article.content.split('\n')
                   : article.content;
 
                 return (
-                  <motion.div 
+                  <motion.div
                     layoutId={`article-${index}`}
-                    key={index} 
-                    ref={(el) => { 
+                    key={index}
+                    ref={(el) => {
                       // Scroll back to this element if it was the last active one
                       if (el && lastActiveIndex.current === index) {
                         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -54,22 +54,22 @@ const HomeArticles: React.FC = () => {
                       }
                     }}
                     onClick={() => {
-                        if (!isLinkCard) {
-                            lastActiveIndex.current = index;
-                            setSelectedArticle(article);
-                        }
+                      if (!isLinkCard) {
+                        lastActiveIndex.current = index;
+                        setSelectedArticle(article);
+                      }
                     }}
                     className={`bg-white/40 backdrop-blur-sm border border-stone-100 rounded-xl p-8 transition-shadow duration-300 hover:shadow-soft group flex flex-col items-start h-full cursor-pointer relative ${isLinkCard ? 'cursor-default' : ''}`}
                     whileHover={!isLinkCard ? { y: -4 } : {}}
                   >
                     <div className="mb-4 w-full">
-                      <motion.h3 
+                      <motion.h3
                         layoutId={`title-${index}`}
                         className="font-serif text-2xl font-bold text-charcoal mb-4 group-hover:text-earthDark transition-colors"
                       >
                         {article.title}
                       </motion.h3>
-                      
+
                       {isLinkCard ? (
                         <ul className="space-y-4 font-sans text-charcoal/80 font-medium mb-4 w-full">
                           {Array.isArray(displayContent) && displayContent.map((linkText, i) => (
@@ -81,7 +81,7 @@ const HomeArticles: React.FC = () => {
                           ))}
                         </ul>
                       ) : (
-                        <motion.p 
+                        <motion.p
                           layoutId={`excerpt-${index}`}
                           className="text-charcoal/70 font-sans leading-relaxed text-sm md:text-base line-clamp-4"
                         >
@@ -119,12 +119,12 @@ const HomeArticles: React.FC = () => {
                 }
               }}
             >
-              <motion.div 
+              <motion.div
                 layoutId={`article-${HOME_ARTICLES.findIndex(a => a.title === selectedArticle.title)}`}
                 transition={TRANSITION}
                 className="bg-white/40 backdrop-blur-sm border border-stone-100 shadow-2xl rounded-xl p-6 md:p-8 relative overflow-hidden"
               >
-                <button 
+                <button
                   onClick={() => setSelectedArticle(null)}
                   className="absolute top-4 right-4 p-2 rounded-full hover:bg-stone-100 transition-colors z-10"
                   aria-label="Close article"
@@ -132,7 +132,7 @@ const HomeArticles: React.FC = () => {
                   <X className="w-5 h-5 text-charcoal/60" />
                 </button>
 
-                <motion.h2 
+                <motion.h2
                   layoutId={`title-${HOME_ARTICLES.findIndex(a => a.title === selectedArticle.title)}`}
                   className="font-serif text-2xl md:text-3xl lg:text-4xl text-charcoal mb-6 pt-2"
                 >
@@ -144,7 +144,7 @@ const HomeArticles: React.FC = () => {
                     <p key={i} className="whitespace-pre-line">{paragraph}</p>
                   ))}
                 </div>
-                
+
                 <div className="mt-8 pt-6 border-t border-stone-200 flex justify-center">
                   <motion.button
                     layoutId={`btn-${HOME_ARTICLES.findIndex(a => a.title === selectedArticle.title)}`}

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../constants';
-import { Menu, X, Home } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('Kezdőlap');
+  const [hasToggled, setHasToggled] = useState(false);
 
   useEffect(() => {
     // Scroll handler only for transparency effect
@@ -30,7 +31,7 @@ const Navbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('hashchange', handleHashChange);
-    
+
     // Initial checks
     handleScroll();
     handleHashChange();
@@ -70,9 +71,9 @@ const Navbar: React.FC = () => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
           // Ensure hash is cleared without reloading
           if (window.location.hash) {
-             history.pushState(null, '', window.location.pathname);
-             // Manually trigger hash change logic since pushState doesn't trigger hashchange event
-             setActiveTab('Kezdőlap');
+            history.pushState(null, '', window.location.pathname);
+            // Manually trigger hash change logic since pushState doesn't trigger hashchange event
+            setActiveTab('Kezdőlap');
           }
         } else {
           // Internal home links (if any)
@@ -89,32 +90,49 @@ const Navbar: React.FC = () => {
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsOpen(false);
-    
+
     if (window.location.hash !== '') {
-         window.location.hash = ''; 
+      window.location.hash = '';
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    setHasToggled(true);
+  };
+
   return (
     <>
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 flex justify-between md:justify-center items-center py-4 px-6 transition-all duration-300 ${
-          isOpen 
-            ? 'bg-transparent' 
-            : isScrolled 
-              ? 'bg-paper/95 backdrop-blur-md shadow-sm border-b border-charcoal/10' 
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 flex justify-between md:justify-center items-center py-4 px-6 transition-all duration-300 ${isOpen
+            ? 'bg-transparent'
+            : isScrolled
+              ? 'bg-paper/95 backdrop-blur-md shadow-sm border-b border-charcoal/10'
               : 'bg-transparent'
-        }`}
+          }`}
       >
         {/* Mobile Logo Placeholder - Left Side */}
-        <a 
-            href="#" 
-            onClick={handleLogoClick}
-            className="md:hidden text-charcoal z-50 hover:text-earth transition-colors relative p-1"
-            aria-label="Back to top"
+        <a
+          href="#"
+          onClick={handleLogoClick}
+          className="md:hidden text-charcoal z-50 hover:text-earth transition-colors relative p-1"
+          aria-label="Back to top"
         >
-            <Home size={28} strokeWidth={1.5} />
+          {/* Built-in SVG Shape (House) */}
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
         </a>
 
         {/* Desktop Menu */}
@@ -124,25 +142,23 @@ const Navbar: React.FC = () => {
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link)}
-                className={`relative text-sm md:text-base font-medium transition-colors duration-300 group font-sans cursor-pointer ${
-                  activeTab === link.name 
-                    ? 'text-earth' 
+                className={`relative text-sm md:text-base font-medium transition-colors duration-300 group font-sans cursor-pointer ${activeTab === link.name
+                    ? 'text-earth'
                     : 'text-charcoal/80 hover:text-earth'
-                }`}
+                  }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1.5 left-0 h-[3px] bg-earth rounded-full transition-all duration-300 ${
-                  activeTab === link.name ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
-                }`} />
+                <span className={`absolute -bottom-1.5 left-0 h-[3px] bg-earth rounded-full transition-all duration-300 ${activeTab === link.name ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-full group-hover:opacity-100'
+                  }`} />
               </a>
             </li>
           ))}
         </ul>
 
         {/* Mobile Menu Button - Right Side */}
-        <button 
+        <button
           className="md:hidden text-charcoal z-50 relative p-1 hover:bg-black/5 rounded-full transition-colors"
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={toggleMenu}
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
@@ -150,14 +166,14 @@ const Navbar: React.FC = () => {
       </nav>
 
       {/* Mobile Menu Overlay - Rolls down from top */}
-      <div 
-        className={`fixed inset-0 z-40 bg-paper flex flex-col items-center justify-center transition-transform duration-700 ease-in-out md:hidden ${
-          isOpen ? 'translate-y-0' : '-translate-y-full'
-        }`}
+      <div
+        className={`fixed inset-0 z-40 bg-paper flex flex-col items-center justify-center md:hidden ${hasToggled ? 'transition-transform duration-700 ease-in-out' : ''
+          } ${isOpen ? 'translate-y-0' : '-translate-y-full'
+          }`}
       >
         <ul className="space-y-8 text-center">
           {NAV_LINKS.map((link, index) => (
-            <li 
+            <li
               key={link.name}
               className={`transition-all duration-500 delay-100 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: `${250 + index * 50}ms` }}
@@ -165,9 +181,8 @@ const Navbar: React.FC = () => {
               <a
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link)}
-                className={`block text-3xl font-serif transition-colors ${
-                  activeTab === link.name ? 'text-earth' : 'text-charcoal/90 hover:text-earth'
-                }`}
+                className={`block text-3xl font-serif transition-colors ${activeTab === link.name ? 'text-earth' : 'text-charcoal/90 hover:text-earth'
+                  }`}
               >
                 {link.name}
               </a>
