@@ -1,4 +1,6 @@
-
+import { Article, GalleryYear, Sponsor, ScheduleItem } from './types';
+import { Leaf, HeartHandshake } from 'lucide-react';
+import React from 'react';
 
 export const NAV_LINKS = [
   { name: 'Kezdőlap', href: '#' },
