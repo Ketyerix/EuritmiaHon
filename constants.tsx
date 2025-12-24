@@ -18,6 +18,20 @@ export const REPORT_YEARS = [
   { year: '2019', label: '2019-es jelentés' },
 ];
 
+export const EXTERNAL_LINKS = [
+  { title: "Magyar Élő Építészet – Finisszázs", url: "https://orszagepito.net/videok/magyar-elo-epiteszet-finisszazs-beszamolo/" },
+  { title: "Azt mondtad: Euritmia?", url: "https://phwi.hu/azt-mondtad-euritmia/" },
+  { title: "Makovecz Imre: Mozgásforma kísérletek III.", url: "https://www.makovecz.hu/haz-kategoria/mozgasforma-kiserletek-iii/" },
+  { title: "Bukaresti Rádió: Vizsgaelőadás beszámoló", url: "https://www.bukarestiradio.ro/2019/05/29/3-erdelyi-helyszinen-lathato-a-magyar-euritmia-kepzes-vegzos-hallgatoinak-vizsgaeloadasa/" },
+  { title: "Videó: Euritmia előadás a Csengeyben", url: "https://youtu.be/tYZ5p6s09RA?si=9-GiKpBBb4q_xMZy" },
+  { title: "Spotify: Szabadságra nevelés", url: "https://open.spotify.com/show/1KHPFXCuj060RQ5uMtwpkQ?si=BGYvSW7OTSq4xZG-k6y80w" },
+  { title: "Országépítő: euritmia az iskolában", url: "https://epa.oszk.hu/02900/02952/00108/pdf/EPA02952_orszagepito_2011_01_28-29.pdf" },
+  { title: "Országépítő: euritmia az óvodában", url: "https://epa.oszk.hu/02900/02952/00108/pdf/EPA02952_orszagepito_2011_01_26-27.pdf" },
+  { title: "Videó: Waldorf Nap a Műcsarnokban", url: "https://youtu.be/4JZC5mNlExU?si=crsC6kC_jt3b8rlo" },
+  { title: "Waldorf Nap a Műcsarnokban (PDF)", url: "https://waldorf-godollo.hu/wp-content/uploads/2019/02/Waldorf-Nap-a-Műcsarnokban.pdf" },
+  { title: "Magyar Építőművészet: Euritmia", url: "https://meonline.hu/utoirat/euritmia/" }
+];
+
 export const HOME_ARTICLES = [
   {
     title: 'Gyógyeuritmia',
@@ -68,7 +82,7 @@ export const HOME_ARTICLES = [
 
         <p class="mb-4 text-justify leading-relaxed">Az Anthromed közhasznú társaság azzal a céllal, hogy ezzel a védjeggyel biztosítsa és tovább fejlessze az antropozófiai orvoslás minőségét.</p>
 
-        <a href="http://www.athromed.de" target="_blank" class="block mb-6 text-earth hover:text-earthDark font-bold hover:underline">www.athromed.de</a>
+        <a href="https://www.anthromed.org" target="_blank" class="block mb-6 text-earth hover:text-earthDark font-bold hover:underline">www.anthromed.org</a>
 
         <p class="mb-4 text-justify leading-relaxed">A védjegy minden gyógyeuritmista rendelkezésére áll, aki olyan elismert gyógyeuritmiai szakmai szövetséghez tartozik, amely szerződéssel kapcsolódik az Anthromed-hez. A következő nemzeti gyógyeuritmiai szakmai szövetségek kapcsolódtak ez idáig a védjegyhasználathoz: USA, Svédország, Olaszország, Németország, Hollandia, Ausztria, Magyarország, Svájc Anglia.</p>
         `,
@@ -312,16 +326,6 @@ export const HOME_ARTICLES = [
         </div>
         `,
     isList: false
-  },
-  {
-    title: 'Linkek',
-    content: `
-        <ul class="space-y-4 font-serif text-lg text-charcoal/90">
-            <li><a href="https://orszagepito.net/videok/magyar-elo-epiteszet-finisszazs-beszamolo/" target="_blank" rel="noopener noreferrer" class="hover:text-earth transition-colors border-b border-transparent hover:border-earth">Makovecz Imre mozgásforma-kísérlet ↗</a></li>
-            <li><a href="https://phwi.hu/azt-mondtad-euritmia/" target="_blank" rel="noopener noreferrer" class="hover:text-earth transition-colors border-b border-transparent hover:border-earth">Azt mondtad: Euritmia? ↗</a></li>
-        </ul>
-        `,
-    isList: true
   }
 ];
 
