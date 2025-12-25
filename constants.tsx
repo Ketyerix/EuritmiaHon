@@ -10,12 +10,12 @@ export const NAV_LINKS = [
 ];
 
 export const REPORT_YEARS = [
-  { year: '2024', label: '2024-es jelentés' },
-  { year: '2023', label: '2023-as jelentés' },
-  { year: '2022', label: '2022-es jelentés' },
-  { year: '2021', label: '2021-es jelentés' },
-  { year: '2020', label: '2020-as jelentés' },
-  { year: '2019', label: '2019-es jelentés' },
+  { year: '2024', label: '2024-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2024.pdf' },
+  { year: '2023', label: '2023-as jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2023.pdf' },
+  { year: '2022', label: '2022-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2022.pdf' },
+  { year: '2021', label: '2021-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2021.pdf' },
+  { year: '2020', label: '2020-as jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2020.pdf' },
+  { year: '2019', label: '2019-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2019.pdf' },
 ];
 
 export const EXTERNAL_LINKS = [
