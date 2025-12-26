@@ -6,6 +6,10 @@ const Hero: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
+  // Touch state for swipe detection
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
   const CAROUSEL_ITEMS = [
     {
       type: 'video',
@@ -44,14 +48,52 @@ const Hero: React.FC = () => {
     },
   ];
 
+  // Navigation helpers
+  const nextSlide = () => {
+    setActiveIndex((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex((prev) => (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
+  };
+
   // Auto rotate logic
   useEffect(() => {
     if (isHovering) return;
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
-    }, 5000); // Increased duration slightly for reading text
+    const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [isHovering]);
+
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsHovering(true); // Pause auto-rotation during touch
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    } else if (isRightSwipe) {
+      prevSlide();
+    }
+
+    // Reset and resume auto-rotation
+    setTouchEnd(null);
+    setTouchStart(null);
+    setIsHovering(false);
+  };
 
   const handleSlideClick = (index: number, target?: string) => {
     if (index !== activeIndex) {
@@ -114,9 +156,12 @@ const Hero: React.FC = () => {
 
       {/* Carousel Container */}
       <div
-        className="relative w-full max-w-4xl h-[280px] md:h-[400px] flex items-center justify-center mb-12 px-4"
+        className="relative w-full max-w-4xl h-[280px] md:h-[400px] flex items-center justify-center mb-12 px-4 touch-pan-y"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {CAROUSEL_ITEMS.map((item, index) => {
           const isActive = index === activeIndex;
@@ -124,7 +169,7 @@ const Hero: React.FC = () => {
           return (
             <div
               key={index}
-              className={`absolute w-[260px] md:w-[520px] h-[180px] md:h-[340px] transition-all duration-700 ease-in-out shadow-2xl overflow-hidden rounded-[1.5rem] group flex flex-col items-center justify-center ${isActive ? 'cursor-pointer' : 'cursor-pointer'}`}
+              className={`absolute w-[260px] md:w-[520px] h-[180px] md:h-[340px] transition-all duration-700 ease-in-out shadow-2xl overflow-hidden rounded-[1.5rem] group flex flex-col items-center justify-center select-none ${isActive ? 'cursor-pointer' : 'cursor-pointer'}`}
               style={getStyle(index)}
               onClick={() => handleSlideClick(index, item.target)}
             >
@@ -134,7 +179,7 @@ const Hero: React.FC = () => {
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover pointer-events-none"
                   />
                   {/* Subtle Overlay */}
                   <div className="absolute inset-0 bg-black/10 pointer-events-none" />
@@ -166,7 +211,7 @@ const Hero: React.FC = () => {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-16 h-16 bg-earth rounded-full flex items-center justify-center border border-white/20 hover:scale-110 hover:bg-earthDark transition-all duration-300 shadow-lg z-30"
+                    className="w-16 h-16 bg-earth rounded-full flex items-center justify-center border border-white/20 hover:scale-110 hover:bg-earthDark transition-all duration-300 shadow-lg z-30 pointer-events-auto"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <Play className="w-6 h-6 text-white fill-white ml-1" />
