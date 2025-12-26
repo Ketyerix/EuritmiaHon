@@ -1,54 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { Play, ArrowRight } from 'lucide-react';
+import { Play } from 'lucide-react';
 import { GALLERY_YEARS } from '../constants';
 
+const CAROUSEL_ITEMS = [
+  {
+    type: 'video',
+    src: 'https://img.youtube.com/vi/lnyp7EVfUGg/maxresdefault.jpg',
+    link: 'https://www.youtube.com/watch?v=lnyp7EVfUGg',
+    alt: 'Euritmia videó'
+  },
+  {
+    type: 'image',
+    src: GALLERY_YEARS[0].coverImages[0],
+    target: '#gallery',
+    alt: 'Galéria'
+  },
+  {
+    type: 'text',
+    title: 'AZ EURITMIA\nÜNNEPE',
+    subtitle: 'művészeti találkozó október 5.-én',
+    target: '#programok',
+    bgClass: 'bg-gradient-to-br from-earthDark to-earth text-white',
+    alt: 'Programok'
+  },
+  {
+    type: 'text',
+    subtitle: 'A MAGYAR EURITMIA TÁRSASÁG',
+    title: 'ÚJ MŰVÉSZTANÁRI\nKÉPZÉST INDÍT!',
+    target: '#kepzesek',
+    bgClass: 'bg-gradient-to-br from-charcoal to-stone-700 text-white',
+    alt: 'Képzések'
+  },
+  {
+    type: 'text',
+    title: 'Támogassa társaságunkat\nadója 1%-val',
+    target: '#supporters',
+    bgClass: 'bg-[#F9F5F1] text-charcoal border-4 border-earth/20',
+    alt: '1% Támogatás'
+  },
+];
+
 const Hero: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0); // Start with the video (index 0)
   const [isHovering, setIsHovering] = useState(false);
 
   // Touch state for swipe detection
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const CAROUSEL_ITEMS = [
-    {
-      type: 'video',
-      src: 'https://img.youtube.com/vi/lnyp7EVfUGg/maxresdefault.jpg',
-      link: 'https://www.youtube.com/watch?v=lnyp7EVfUGg',
-      alt: 'Euritmia videó'
-    },
-    {
-      type: 'image',
-      src: GALLERY_YEARS[0].coverImages[0],
-      target: '#gallery',
-      alt: 'Galéria'
-    },
-    {
-      type: 'text',
-      title: 'AZ EURITMIA\nÜNNEPE',
-      subtitle: 'művészeti találkozó október 5.-én',
-      target: '#programok',
-      bgClass: 'bg-gradient-to-br from-earthDark to-earth text-white',
-      alt: 'Programok'
-    },
-    {
-      type: 'text',
-      subtitle: 'A MAGYAR EURITMIA TÁRSASÁG',
-      title: 'ÚJ MŰVÉSZTANÁRI\nKÉPZÉST INDÍT!',
-      target: '#kepzesek',
-      bgClass: 'bg-gradient-to-br from-charcoal to-stone-700 text-white',
-      alt: 'Képzések'
-    },
-    {
-      type: 'text',
-      title: 'Támogassa társaságunkat\nadója 1%-val',
-      target: '#supporters',
-      bgClass: 'bg-[#F9F5F1] text-charcoal border-4 border-earth/20',
-      alt: '1% Támogatás'
-    },
-  ];
-
-  // Navigation helpers
+  // Helper functions for navigation
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
   };
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
   // Auto rotate logic
   useEffect(() => {
     if (isHovering) return;
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
   }, [isHovering]);
 
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
-    setIsHovering(true); // Pause auto-rotation during touch
+    setIsHovering(true); // Pause auto-rotation during touch interaction
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -93,15 +93,6 @@ const Hero: React.FC = () => {
     setTouchEnd(null);
     setTouchStart(null);
     setIsHovering(false);
-  };
-
-  const handleSlideClick = (index: number, target?: string) => {
-    if (index !== activeIndex) {
-      setActiveIndex(index);
-    } else if (target) {
-      // If active and has target, navigate
-      window.location.hash = target;
-    }
   };
 
   const getStyle = (index: number) => {
@@ -154,9 +145,9 @@ const Hero: React.FC = () => {
         </h2>
       </div>
 
-      {/* Carousel Container */}
+      {/* Playful Carousel Container - Reduced Size */}
       <div
-        className="relative w-full max-w-4xl h-[280px] md:h-[400px] flex items-center justify-center mb-12 px-4 touch-pan-y"
+        className="relative w-full max-w-4xl h-[250px] md:h-[380px] flex items-center justify-center mb-8 touch-pan-y"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         onTouchStart={handleTouchStart}
@@ -165,64 +156,34 @@ const Hero: React.FC = () => {
       >
         {CAROUSEL_ITEMS.map((item, index) => {
           const isActive = index === activeIndex;
-
           return (
             <div
               key={index}
-              className={`absolute w-[260px] md:w-[520px] h-[180px] md:h-[340px] transition-all duration-700 ease-in-out shadow-2xl overflow-hidden rounded-[1.5rem] group flex flex-col items-center justify-center select-none ${isActive ? 'cursor-pointer' : 'cursor-pointer'}`}
+              className="absolute w-[240px] md:w-[480px] h-[170px] md:h-[320px] transition-all duration-700 ease-in-out shadow-2xl overflow-hidden cursor-pointer rounded-[1.5rem] group select-none"
               style={getStyle(index)}
-              onClick={() => handleSlideClick(index, item.target)}
+              onClick={() => setActiveIndex(index)}
             >
-              {/* Content Render Logic */}
-              {item.type === 'video' || item.type === 'image' ? (
-                <>
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    className="w-full h-full object-cover pointer-events-none"
-                  />
-                  {/* Subtle Overlay */}
-                  <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-                </>
-              ) : (
-                <div className={`w-full h-full p-6 md:p-10 flex flex-col items-center justify-center text-center ${item.bgClass}`}>
-                  {item.subtitle && (
-                    <p className="font-sans text-xs md:text-sm tracking-widest uppercase mb-2 md:mb-4 opacity-90">
-                      {item.subtitle}
-                    </p>
-                  )}
-                  <h3 className="font-serif text-xl md:text-3xl font-bold leading-snug whitespace-pre-line">
-                    {item.title}
-                  </h3>
+              <img
+                src={item.src}
+                alt={`Slide ${index}`}
+                className="w-full h-full object-cover pointer-events-none"
+              />
 
-                  {/* Action Hint when active */}
-                  {isActive && (
-                    <div className="mt-4 md:mt-6 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full flex items-center gap-2 text-xs md:text-sm font-bold uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      Megnézem <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-                    </div>
-                  )}
-                </div>
-              )}
+              {/* Subtle Overlay */}
+              <div className="absolute inset-0 bg-black/5 pointer-events-none" />
 
-              {/* Video Play Button Overlay */}
+              {/* Video Play Button Overlay - Only visible when active */}
               {item.type === 'video' && (
                 <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-16 h-16 bg-earth rounded-full flex items-center justify-center border border-white/20 hover:scale-110 hover:bg-earthDark transition-all duration-300 shadow-lg z-30 pointer-events-auto"
-                    onClick={(e) => e.stopPropagation()}
+                    className="w-16 h-16 bg-earth rounded-full flex items-center justify-center border border-white/20 hover:scale-110 hover:bg-earthDark transition-all duration-300 shadow-lg pointer-events-auto"
+                    onClick={(e) => e.stopPropagation()} // Stop propagation so clicking button doesn't trigger slide click logic
                   >
                     <Play className="w-6 h-6 text-white fill-white ml-1" />
                   </a>
-                </div>
-              )}
-
-              {/* Click Hint for Image type */}
-              {item.type === 'image' && isActive && (
-                <div className="absolute bottom-6 bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                  Galéria megtekintése
                 </div>
               )}
             </div>
@@ -231,12 +192,12 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Pagination dots */}
-      <div className="flex space-x-3 mb-12 z-10">
+      <div className="flex space-x-2 mb-12 z-10">
         {CAROUSEL_ITEMS.map((_, i) => (
           <button
             key={i}
             onClick={() => setActiveIndex(i)}
-            className={`transition-all duration-300 rounded-full ${activeIndex === i ? 'bg-earth w-8 h-2' : 'bg-charcoal/20 w-2 h-2 hover:bg-charcoal/40'}`}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeIndex === i ? 'bg-earth w-8' : 'bg-charcoal/20 hover:bg-charcoal/40'}`}
             aria-label={`Go to slide ${i + 1}`}
           />
         ))}
