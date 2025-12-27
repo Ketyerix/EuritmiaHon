@@ -62,9 +62,9 @@ const Gallery: React.FC = () => {
 
   return (
     <>
-      <section 
-          id="gallery" 
-          className="py-24 px-4 md:px-12 bg-transparent relative z-10"
+      <section
+        id="gallery"
+        className="py-24 px-4 md:px-12 bg-transparent relative z-10"
       >
         <div className="max-w-7xl mx-auto">
           {!activeId && (
@@ -103,14 +103,14 @@ const Gallery: React.FC = () => {
                     className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer aspect-[4/3]"
                   >
                     <img
-                        src={item.coverImages[0]}
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      src={item.coverImage}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    
+
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                    
+
                     {/* Text placed inside the image */}
                     <h3 className="absolute bottom-6 left-0 right-0 px-4 font-serif text-2xl font-bold text-white text-center drop-shadow-md">
                       {item.title}
@@ -129,21 +129,21 @@ const Gallery: React.FC = () => {
                 ref={(el) => {
                   // Scroll to top of the detailed view when it mounts
                   if (el) {
-                      const y = el.getBoundingClientRect().top + window.scrollY - 100;
-                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    const y = el.getBoundingClientRect().top + window.scrollY - 100;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
                   }
                 }}
               >
                 <div className="flex justify-between items-center mb-8 relative">
                   <button
-                      onClick={handleClose}
-                      className="flex items-center gap-2 text-charcoal hover:text-earth transition-colors group px-4 py-2 rounded-full bg-white/40 hover:bg-white/80 backdrop-blur-sm shadow-sm"
+                    onClick={handleClose}
+                    className="flex items-center gap-2 text-charcoal hover:text-earth transition-colors group px-4 py-2 rounded-full bg-white/40 hover:bg-white/80 backdrop-blur-sm shadow-sm"
                   >
-                      <ArrowLeft className="w-5 h-5" />
-                      <span className="font-serif text-lg font-medium">Vissza a galériához</span>
+                    <ArrowLeft className="w-5 h-5" />
+                    <span className="font-serif text-lg font-medium">Vissza a galériához</span>
                   </button>
                 </div>
-                
+
                 <div className="text-center mb-8">
                   <h3 className="font-serif text-3xl text-charcoal mb-2 font-bold">{activeData?.title}</h3>
                 </div>
@@ -167,13 +167,13 @@ const Gallery: React.FC = () => {
                     </motion.div>
                   ))}
                 </div>
-                
+
                 <div className="mt-12 flex justify-center">
                   <button
-                      onClick={handleClose}
-                      className="px-8 py-3 rounded-full bg-earth text-charcoal font-semibold tracking-wide hover:bg-earthDark hover:text-white hover:shadow-lg transition-all duration-300 shadow-sm"
+                    onClick={handleClose}
+                    className="px-8 py-3 rounded-full bg-earth text-charcoal font-semibold tracking-wide hover:bg-earthDark hover:text-white hover:shadow-lg transition-all duration-300 shadow-sm"
                   >
-                      Bezárás
+                    Bezárás
                   </button>
                 </div>
               </motion.div>
@@ -186,23 +186,23 @@ const Gallery: React.FC = () => {
       {createPortal(
         <AnimatePresence>
           {lightboxIndex !== null && activeData && (
-            <motion.div 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[9999] bg-black/95 backdrop-blur-md flex items-center justify-center p-4"
               onClick={closeLightbox}
             >
               {/* Close Button */}
-              <button 
-                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 z-[10000]" 
+              <button
+                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors p-2 z-[10000]"
                 onClick={closeLightbox}
               >
                 <X size={36} />
               </button>
 
               {/* Left Arrow */}
-              <button 
+              <button
                 className="absolute left-4 md:left-8 text-white/50 hover:text-white transition-colors p-4 z-[10000]"
                 onClick={prevImage}
               >
@@ -222,13 +222,13 @@ const Gallery: React.FC = () => {
               />
 
               {/* Right Arrow */}
-              <button 
+              <button
                 className="absolute right-4 md:right-8 text-white/50 hover:text-white transition-colors p-4 z-[10000]"
                 onClick={nextImage}
               >
                 <ChevronRight size={48} />
               </button>
-              
+
               {/* Image Counter */}
               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-sans text-sm tracking-widest z-[10000]">
                 {lightboxIndex + 1} / {activeData.fullGallery.length}

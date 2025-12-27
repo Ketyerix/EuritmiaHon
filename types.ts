@@ -12,7 +12,7 @@ export interface GalleryYear {
   id: string;
   year: number;
   title: string;
-  coverImages: string[];
+  coverImage: string;
   fullGallery: string[];
 }
 

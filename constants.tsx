@@ -1,5 +1,4 @@
-import { Article, GalleryYear, Sponsor, ScheduleItem } from './types';
-import { Leaf, HeartHandshake } from 'lucide-react';
+import { Article, GalleryYear, ScheduleItem } from './types';
 import React from 'react';
 
 export const NAV_LINKS = [
@@ -392,69 +391,67 @@ export const ARTICLES: Article[] = [
 
 export const GALLERY_YEARS: GalleryYear[] = [
   {
+    id: '2025',
+    year: 2025,
+    title: '2025-ös előadások',
+    coverImage: '/EuritmiaHon/gallery/2025/DSC03954.jpeg',
+    fullGallery: [
+      '/EuritmiaHon/gallery/2025/DSC03954.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04324.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04357.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04451.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04563.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04567.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04598.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04640.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04677.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04692.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04778.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04794.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC04853.jpeg',
+      '/EuritmiaHon/gallery/2025/DSC05017.jpeg'
+    ]
+  },
+  {
     id: '2024',
     year: 2024,
     title: '2024-es előadások',
-    coverImages: [
-      'https://picsum.photos/400/300?random=1',
-      'https://picsum.photos/400/300?random=2',
-      'https://picsum.photos/400/300?random=3'
-    ],
+    coverImage: 'https://picsum.photos/400/300?random=1',
     fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=24${i}`)
   },
   {
     id: '2023',
     year: 2023,
     title: '2023-as előadások',
-    coverImages: [
-      'https://picsum.photos/400/300?random=4',
-      'https://picsum.photos/400/300?random=5',
-      'https://picsum.photos/400/300?random=6'
-    ],
+    coverImage: 'https://picsum.photos/400/300?random=4',
     fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=23${i}`)
   },
   {
     id: '2022',
     year: 2022,
     title: '2022-es előadások',
-    coverImages: [
-      'https://picsum.photos/400/300?random=7',
-      'https://picsum.photos/400/300?random=8',
-      'https://picsum.photos/400/300?random=9'
-    ],
+    coverImage: 'https://picsum.photos/400/300?random=7',
     fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=22${i}`)
   },
   {
     id: '2021',
     year: 2021,
     title: '2021-es előadások',
-    coverImages: [
-      'https://picsum.photos/400/300?random=10',
-      'https://picsum.photos/400/300?random=11',
-      'https://picsum.photos/400/300?random=12'
-    ],
+    coverImage: 'https://picsum.photos/400/300?random=10',
     fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=21${i}`)
   },
   {
     id: '2020',
     year: 2020,
     title: '2020-as előadások',
-    coverImages: [
-      'https://picsum.photos/400/300?random=13',
-      'https://picsum.photos/400/300?random=14',
-      'https://picsum.photos/400/300?random=15'
-    ],
+    coverImage: 'https://picsum.photos/400/300?random=13',
     fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=20${i}`)
   },
   {
     id: '2019',
     year: 2019,
     title: '2019-es előadások',
-    coverImages: [
-      'https://picsum.photos/400/300?random=16',
-      'https://picsum.photos/400/300?random=17',
-      'https://picsum.photos/400/300?random=18'
-    ],
+    coverImage: 'https://picsum.photos/400/300?random=16',
     fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=19${i}`)
   },
 ];

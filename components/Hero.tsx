@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Play, ArrowRight } from 'lucide-react';
+import { GALLERY_YEARS } from '../constants';
 
 const CAROUSEL_ITEMS = [
   {
@@ -10,7 +11,7 @@ const CAROUSEL_ITEMS = [
   },
   {
     type: 'image',
-    src: 'https://picsum.photos/800/500?random=101',
+    src: GALLERY_YEARS[0].coverImage,
     target: '#gallery',
     alt: 'Galéria'
   },
@@ -91,7 +92,12 @@ const Hero: React.FC = () => {
     if (index !== activeIndex) {
       setActiveIndex(index);
     } else if (target) {
-      window.location.hash = target;
+      const isRoute = target === '#programok' || target === '#kepzesek' || target === '#supporters';
+      if (isRoute) {
+        window.location.hash = target;
+      } else {
+        document.querySelector(target)?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
