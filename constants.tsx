@@ -416,42 +416,45 @@ export const GALLERY_YEARS: GalleryYear[] = [
     id: '2024',
     year: 2024,
     title: '2024-es előadások',
-    coverImage: 'https://picsum.photos/400/300?random=1',
-    fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=24${i}`)
+    coverImage: '/EuritmiaHon/gallery/Hamarosan1.jpg',
+    fullGallery: [
+      '/EuritmiaHon/gallery/Hamarosan1.jpg',
+    ]
   },
   {
     id: '2023',
     year: 2023,
     title: '2023-as előadások',
-    coverImage: 'https://picsum.photos/400/300?random=4',
-    fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=23${i}`)
+    coverImage: '/EuritmiaHon/gallery/Hamarosan2.jpg',
+    fullGallery: [
+      '/EuritmiaHon/gallery/Hamarosan2.jpg',
+    ]
   },
   {
     id: '2022',
     year: 2022,
     title: '2022-es előadások',
-    coverImage: 'https://picsum.photos/400/300?random=7',
-    fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=22${i}`)
+    coverImage: '/EuritmiaHon/gallery/Hamarosan3.jpg',
+    fullGallery: [
+      '/EuritmiaHon/gallery/Hamarosan3.jpg',
+    ]
   },
   {
     id: '2021',
     year: 2021,
     title: '2021-es előadások',
-    coverImage: 'https://picsum.photos/400/300?random=10',
-    fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=21${i}`)
+    coverImage: '/EuritmiaHon/gallery/Hamarosan4.jpg',
+    fullGallery: [
+      '/EuritmiaHon/gallery/Hamarosan4.jpg',
+    ]
   },
   {
     id: '2020',
     year: 2020,
     title: '2020-as előadások',
-    coverImage: 'https://picsum.photos/400/300?random=13',
-    fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=20${i}`)
-  },
-  {
-    id: '2019',
-    year: 2019,
-    title: '2019-es előadások',
-    coverImage: 'https://picsum.photos/400/300?random=16',
-    fullGallery: Array(6).fill(null).map((_, i) => `https://picsum.photos/800/600?random=19${i}`)
-  },
+    coverImage: '/EuritmiaHon/gallery/Hamarosan5.jpg',
+    fullGallery: [
+      '/EuritmiaHon/gallery/Hamarosan5.jpg',
+    ]
+  }
 ];
