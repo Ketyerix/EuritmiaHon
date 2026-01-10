@@ -9,12 +9,12 @@ export const NAV_LINKS = [
 ];
 
 export const REPORT_YEARS = [
-  { year: '2024', label: '2024-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2024.pdf' },
-  { year: '2023', label: '2023-as jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2023.pdf' },
-  { year: '2022', label: '2022-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2022.pdf' },
-  { year: '2021', label: '2021-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2021.pdf' },
-  { year: '2020', label: '2020-as jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2020.pdf' },
-  { year: '2019', label: '2019-es jelentés', href: '/EuritmiaHon/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2019.pdf' },
+  { year: '2024', label: '2024-es jelentés', href: '/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2024.pdf' },
+  { year: '2023', label: '2023-as jelentés', href: '/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2023.pdf' },
+  { year: '2022', label: '2022-es jelentés', href: '/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2022.pdf' },
+  { year: '2021', label: '2021-es jelentés', href: '/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2021.pdf' },
+  { year: '2020', label: '2020-as jelentés', href: '/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2020.pdf' },
+  { year: '2019', label: '2019-es jelentés', href: '/documents/Magyar_Euritmia_Mozgásmüvészeti_Társaság_jelentés_2019.pdf' },
 ];
 
 export const EXTERNAL_LINKS = [
@@ -394,67 +394,67 @@ export const GALLERY_YEARS: GalleryYear[] = [
     id: '2025',
     year: 2025,
     title: '2025-ös előadások',
-    coverImage: '/EuritmiaHon/gallery/2025/DSC03954.jpg',
+    coverImage: '/gallery/2025/DSC03954.jpg',
     fullGallery: [
-      '/EuritmiaHon/gallery/2025/DSC03954.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04324.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04357.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04451.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04563.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04567.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04598.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04640.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04677.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04692.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04778.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04794.jpg',
-      '/EuritmiaHon/gallery/2025/DSC04853.jpg',
-      '/EuritmiaHon/gallery/2025/DSC05017.jpg'
+      '/gallery/2025/DSC03954.jpg',
+      '/gallery/2025/DSC04324.jpg',
+      '/gallery/2025/DSC04357.jpg',
+      '/gallery/2025/DSC04451.jpg',
+      '/gallery/2025/DSC04563.jpg',
+      '/gallery/2025/DSC04567.jpg',
+      '/gallery/2025/DSC04598.jpg',
+      '/gallery/2025/DSC04640.jpg',
+      '/gallery/2025/DSC04677.jpg',
+      '/gallery/2025/DSC04692.jpg',
+      '/gallery/2025/DSC04778.jpg',
+      '/gallery/2025/DSC04794.jpg',
+      '/gallery/2025/DSC04853.jpg',
+      '/gallery/2025/DSC05017.jpg'
     ]
   },
   {
     id: '2024',
     year: 2024,
     title: '2024-es előadások',
-    coverImage: '/EuritmiaHon/gallery/Hamarosan1.jpg',
+    coverImage: '/gallery/Hamarosan1.jpg',
     fullGallery: [
-      '/EuritmiaHon/gallery/Hamarosan1.jpg',
+      '/gallery/Hamarosan1.jpg',
     ]
   },
   {
     id: '2023',
     year: 2023,
     title: '2023-as előadások',
-    coverImage: '/EuritmiaHon/gallery/Hamarosan2.jpg',
+    coverImage: '/gallery/Hamarosan2.jpg',
     fullGallery: [
-      '/EuritmiaHon/gallery/Hamarosan2.jpg',
+      '/gallery/Hamarosan2.jpg',
     ]
   },
   {
     id: '2022',
     year: 2022,
     title: '2022-es előadások',
-    coverImage: '/EuritmiaHon/gallery/Hamarosan3.jpg',
+    coverImage: '/gallery/Hamarosan3.jpg',
     fullGallery: [
-      '/EuritmiaHon/gallery/Hamarosan3.jpg',
+      '/gallery/Hamarosan3.jpg',
     ]
   },
   {
     id: '2021',
     year: 2021,
     title: '2021-es előadások',
-    coverImage: '/EuritmiaHon/gallery/Hamarosan4.jpg',
+    coverImage: '/gallery/Hamarosan4.jpg',
     fullGallery: [
-      '/EuritmiaHon/gallery/Hamarosan4.jpg',
+      '/gallery/Hamarosan4.jpg',
     ]
   },
   {
     id: '2020',
     year: 2020,
     title: '2020-as előadások',
-    coverImage: '/EuritmiaHon/gallery/Hamarosan5.jpg',
+    coverImage: '/gallery/Hamarosan5.jpg',
     fullGallery: [
-      '/EuritmiaHon/gallery/Hamarosan5.jpg',
+      '/gallery/Hamarosan5.jpg',
     ]
   }
 ];
