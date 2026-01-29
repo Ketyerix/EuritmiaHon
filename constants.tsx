@@ -165,7 +165,7 @@ export const HOME_ARTICLES = [
     title: 'Testből font jelbeszéd',
     content: `
         <div class="mb-8 text-center font-serif italic text-charcoal/60">
-            Részletek S. Pintye Mária: „Testből font jelbeszéd" c. írásából
+            S. Pintye Mária: „Testből font jelbeszéd”. Az euritmia lehetőségei a logopédiai óvodában. In: Kissné Haffner É. (szerk.): Segíts, hogy önmagam is csinálhassam. BGGYTF, Bp., 1998
         </div>
 
         <p class="mb-6 text-justify leading-relaxed">Az euritmia egyfajta mozgásművészet. Maga a szó görög eredetű, jelentése jó, szép ritmus. Rudolf Steiner az 1910-es években indította útjára, s azóta művészeti, pedagógiai és gyógyító ága egyaránt termékeny. Főleg Nyugat-Európában, de az amerikai kontinensen is működnek 4 éves művészeti főiskolák, s az itt diplomázott euritmisták a művészeti munka mellett Waldorf-iskolákban tanítanak, ahol óvodától 12. osztályig szerepel a tantervben euritmia óra. Kórházakban, gyógypedagógiai intézetekben gyógyeuritmisták dolgozznak, akik az orvosokkal együttműködve számos betegséget képesek hatékonyan kezelni.</p>
