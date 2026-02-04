@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           huneuritmia@gmail.com
         </a>
         <div className="pt-8 text-xs text-charcoal/40">
-          © 2025 Magyar Euritmia – Mozgásművészeti Társaság
+          © {new Date().getFullYear()} Magyar Euritmia – Mozgásművészeti Társaság
         </div>
       </div>
     </footer>
