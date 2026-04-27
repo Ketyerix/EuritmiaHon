@@ -132,7 +132,7 @@ const Supporters: React.FC = () => {
         <div className="bg-white/40 backdrop-blur-sm rounded-[2rem] p-8 md:p-16 shadow-soft border border-stone-100 mb-20 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
           <div className="text-center mb-12">
             <h3 className="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-2">
-              2018 Nonprofit Beszámoló
+              2025 Nonprofit Beszámoló
             </h3>
             <p className="text-earth font-bold uppercase tracking-widest text-xs">
               A közhasznú tevékenységeinkről
@@ -148,20 +148,23 @@ const Supporters: React.FC = () => {
                 Egészségmegőrzés, gyógyító, egészségügyi rehabilitáció tevékenység
               </h4>
               <p className="text-charcoal/80 leading-relaxed">
-                A 2018-as évben is tovább folytatódtak a felnőtt euritmia csoportok rendszeres foglalkozásai. Mindhárom csoportunkban kimondottan a saját élményű átélés, egészségmegőrzés volt a cél. A végzett euritmisták számára terápiás euritmia-továbbképzéseket szerveztünk. Társaságunk tagjai különböző intézményekben rendszeres egészségmegőrző euritmia foglalkozásokat tartottak.
+                A 2025-ös évben felnőtt csoportoknak rendszeres euritmia-foglalkozásokat tartottunk, ahol kimondottan saját élményű átélés, egészségmegőrzés volt a cél. Heti rendszerességgel működött egy bevezető kurzus. Kéthetente tartottunk egy haladó amatőr csoportnak foglalkozásokat, ahol az egészségmegőrzésen kívül célunk volt, hogy a résztvevők elmélyülhessenek az euritmiában.
               </p>
             </div>
 
             {/* Section 2 */}
             <div>
               <h4 className="font-serif text-xl font-bold text-charcoal mb-4 pb-2 border-b border-charcoal/10 inline-block">
-                Nevelés, oktatás, képességfejlesztés
+                Nevelés és oktatás, képességfejlesztés, ismeretterjesztés
               </h4>
               <p className="text-charcoal/80 leading-relaxed mb-4">
-                Az Egyesületünk által működtetett képzés tagja a Nemzetközi Euritmia Szövetségnek, és jogosult a Szövetség euritmia-tanárképzési programja szerinti oktatást budapesti helyszínen megszervezni. 2018-ban egy ötödéves és két másodéves csoporttal dolgoztunk.
+                A 2025-ös évben egy harmad-/negyedéves nappali rendszerben és egy negyed-/ötödéves munka mellett tanuló képzési csoporttal dolgozunk. Szeptembertől elindult az elsőéves munka melletti rendszerben tanuló csoport.
+              </p>
+              <p className="text-charcoal/80 leading-relaxed mb-4">
+                Folytattuk a rendszeres szellemi és szakmai találkozókat.
               </p>
               <p className="text-charcoal/80 leading-relaxed">
-                A Társaságunk által megszervezett képzés lehetővé teszi, hogy a Waldorf iskolákban kötelezőlyen oktatott euritmiát megfelelő képesítéssel rendelkező tanárok oktathassák. A tanárok által az euritmia több száz gyermekhez eljut, segítve ezáltal az egészséges fejlődésüket.
+                Társaságunk tagjai folytatták az ismeretterjesztő, bemutató előadások és euritmiaórák megtartását a Waldorf iskolák szülői közösségeinek és a gyerekeknek.
               </p>
             </div>
 
@@ -170,8 +173,37 @@ const Supporters: React.FC = () => {
               <h4 className="font-serif text-xl font-bold text-charcoal mb-4 pb-2 border-b border-charcoal/10 inline-block">
                 Kulturális tevékenységek
               </h4>
+              <p className="text-charcoal/80 leading-relaxed mb-4">
+                A 2025-ös évben Társaságunk 11 nagyobb nyilvános, színházi előadást 2 kisebb előadást és egy vendégelőadást szervezett meg. A hallgatók nyári és téli vizsgaelőadásai kisebb közönség előtt kerültek bemutatásra. A hallgatók szakdolgozatainak védéséhez kapcsolódóan szintén voltak kisebb bemutatók. Az előadásokon összesen 2500-2600 néző vett részt gyerekek, fiatalok és felnőttek egyaránt.
+              </p>
               <p className="text-charcoal/80 leading-relaxed">
-                2018-ban Társaságunk újabb nyilvános, színházi előadásokat szervezett. Az Artemisz Euritmiaszínpad matinéelőadást tartott a Kispesti Waldorf Iskola diákjainak. A produkciót két grazi Waldorf iskola is vendégszereplésre hívta. Társaságunk turnét szervezett a Hannoveri Euritmaiskola végzős diákjainak és tanárainak. A székhelyünkön kisebb euritmia előadásokra és koncertekre került sor neves művészek közreműködésével.
+                A székhelyünkön Varga Máté és Robotka Bertalan zongora - koncerteket tartottak.
+              </p>
+            </div>
+
+            {/* Section 4 */}
+            <div>
+              <h4 className="font-serif text-xl font-bold text-charcoal mb-4 pb-2 border-b border-charcoal/10 inline-block">
+                Előadások
+              </h4>
+              <ul className="text-charcoal/80 leading-relaxed space-y-2 list-disc pl-5">
+                <li>márciusban az Óbudai Waldorf Iskolában mutatta be Schubert 5. szimfóniáját az Artemisz Euritmia Színpad a Vasas Művészegyüttes Vass Lajos szimfonikus zenekarának közreműködésével, majd a Pesti Vigadóban Rudolf Steiner halálának 100. évfordulója alkalmából rendezett megemlékezésen léptünk fel.</li>
+                <li>áprilisban húsvéti előadást tartottunk a székhelyünkön a végzett euritmisták és a hallgatók közreműködésével</li>
+                <li>májusban a Vasas Székházban Beethoven 2. szimfóniáját mutatta be az Artemisz Euritmia Színpad és a Vasas Művészegyüttes Vass Lajos szimfonikus zenekara</li>
+                <li>júniusban a Sashalmi Waldorf Iskolában mutattuk be a két szimfóniát a Vasas szimfonikus zenekarával és vendégül láttuk a dornachi (Svájc) Eurythmeum-CH euritmiaképzős végzős diákjait, akik a diplomaelőadásukat mutatták be</li>
+                <li>októberben turnét szerveztünk, ahol a két szimfóniát mutattuk be (Kispesti Waldorf Iskola, Solymári Fészek Waldorf Iskola, Szt. Margit Gimnázium, Szabad Waldorf Gimnázium Kamaraerdő)</li>
+                <li>novemberben újabb előadások voltak az Óbudai Waldorf Iskolában és a Pesti Vigadóban, Adamovich Ferenc PhD táncpedagógus Makovecz Imre mozgásforma-kísérleteiről szóló előadásához kapcsolódóan.</li>
+                <li>decemberben a hallgatókkal közösen karácsonyi előadás került bemutatásra</li>
+              </ul>
+            </div>
+
+            {/* Section 5 */}
+            <div>
+              <h4 className="font-serif text-xl font-bold text-charcoal mb-4 pb-2 border-b border-charcoal/10 inline-block">
+                Főbb tevékenységek
+              </h4>
+              <p className="text-charcoal/80 leading-relaxed">
+                Felnőttek számára egészségmegőrzés céljából szervezett euritmia-foglalkozások; Waldorf-iskolákban és óvodákban tanító euritmiatanárok képzésének és továbbképzésének megszervezése; a gyermekek euritmia segítségével történő oktatása, nevelése és képességfejlesztése érdekében végzett munka támogatása; gyermekek előadásainak megszervezése, művészi euritmia-előadások szervezése, más művészekkel való együttműködés.
               </p>
             </div>
 
