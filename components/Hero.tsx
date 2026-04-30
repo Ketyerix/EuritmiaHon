@@ -4,6 +4,14 @@ import { GALLERY_YEARS } from '../constants';
 
 const CAROUSEL_ITEMS = [
   {
+    type: 'image',
+    src: '/programs/EURITMIA_VIZSGAELOADAS_2026_JAM.jpg',
+    target: '#programok',
+    alt: 'Vizsgaelőadás 2026 plakát',
+    imgClass: 'object-top',
+    hint: 'Részletek'
+  },
+  {
     type: 'video',
     src: 'https://img.youtube.com/vi/lnyp7EVfUGg/maxresdefault.jpg',
     link: 'https://www.youtube.com/watch?v=lnyp7EVfUGg',
@@ -13,7 +21,8 @@ const CAROUSEL_ITEMS = [
     type: 'image',
     src: GALLERY_YEARS[0].coverImage,
     target: '#gallery',
-    alt: 'Galéria'
+    alt: 'Galéria',
+    hint: 'Galéria megtekintése'
   },
   {
     type: 'text',
@@ -176,7 +185,7 @@ const Hero: React.FC = () => {
                   <img
                     src={item.src}
                     alt={item.alt}
-                    className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover ${item.imgClass || ''}`}
                   />
                   <div className="absolute inset-0 bg-black/10 pointer-events-none" />
                 </>
@@ -216,9 +225,9 @@ const Hero: React.FC = () => {
               )}
 
               {/* Image Click Hint */}
-              {item.type === 'image' && isActive && (
+              {item.type === 'image' && isActive && item.hint && (
                 <div className="absolute bottom-6 bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest transition-opacity">
-                  Galéria megtekintése
+                  {item.hint}
                 </div>
               )}
             </div>
