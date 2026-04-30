@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import HomeArticles from './components/HomeArticles';
 import Articles from './components/Articles';
+import Programs from './components/Programs';
 import Sponsors from './components/Sponsors';
 import Education from './components/Education';
 import Supporters from './components/Supporters';
@@ -83,7 +83,7 @@ const App: React.FC = () => {
         {view === 'home' && (
           <div className="animate-fade-in-up">
             <Hero />
-            <HomeArticles />
+            <Articles />
             <Gallery />
             <Sponsors />
           </div>
@@ -91,7 +91,7 @@ const App: React.FC = () => {
         
         {view === 'program' && (
           <div className="animate-fade-in-up">
-            <Articles />
+            <Programs />
           </div>
         )}
 

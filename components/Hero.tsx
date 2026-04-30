@@ -47,6 +47,7 @@ const Hero: React.FC = () => {
   // Touch state for swipe detection
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [showNotification, setShowNotification] = useState(false);
 
   const nextSlide = () => {
     setActiveIndex((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
@@ -55,6 +56,11 @@ const Hero: React.FC = () => {
   const prevSlide = () => {
     setActiveIndex((prev) => (prev - 1 + CAROUSEL_ITEMS.length) % CAROUSEL_ITEMS.length);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNotification(true), 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Auto rotate
   useEffect(() => {
@@ -116,15 +122,33 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative pt-32 pb-16 overflow-hidden min-h-screen flex flex-col items-center justify-center">
+    <section id="hero" className="relative pt-24 md:pt-28 pb-32 md:pb-16 overflow-hidden min-h-screen flex flex-col items-center justify-center">
+
       {/* Headings */}
-      <div className="text-center mb-10 px-4 animate-fade-in-up z-10">
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-charcoal font-bold leading-tight tracking-tight mb-4">
+      <div className="text-center mb-12 md:mb-16 px-4 animate-fade-in-up z-10">
+        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-charcoal font-bold leading-tight tracking-tight mb-2 md:mb-4">
           MAGYAR EURITMIA –
         </h1>
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-charcoal/90 italic">
           MOZGÁSMŰVÉSZETI TÁRSASÁG
         </h2>
+      </div>
+
+      {/* Notification Bubble */}
+      <div
+        className={`mb-8 md:mb-12 z-20 transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] transform cursor-pointer origin-center ${showNotification ? 'scale-100 opacity-100' : 'scale-x-[0.2] scale-y-[0.1] opacity-0'
+          }`}
+        onClick={() => window.location.hash = '#programok'}
+      >
+        <div className="bg-gradient-to-r from-earthDark to-earth text-white px-4 py-3 sm:px-6 sm:py-3 md:px-6 md:py-4 rounded-full shadow-2xl flex flex-row items-center gap-2 sm:gap-8 md:gap-12 hover:scale-[1.03] transition-transform border border-white/20 group">
+          <span className="font-serif font-bold tracking-wide drop-shadow-md whitespace-nowrap">
+            <span className="sm:hidden text-[14px] uppercase">Vizsgaelőadás jegyek</span>
+            <span className="hidden sm:inline text-base md:text-xl">VIZSGAELŐADÁS jegyek elérhetőek</span>
+          </span>
+          <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wide flex items-center gap-1 sm:gap-2 group-hover:bg-white/30 transition-colors border border-white/10 shrink-0">
+            Megnézem <ArrowRight className="w-6 h-6 md:w-4 md:h-4" />
+          </div>
+        </div>
       </div>
 
       {/* Carousel */}
