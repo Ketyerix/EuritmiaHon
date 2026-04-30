@@ -396,4 +396,5 @@ export const GALLERY_YEARS: GalleryYear[] = [
       '/gallery/Hamarosan5.jpg',
     ]
   }
+
 ];

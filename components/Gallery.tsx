@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GALLERY_YEARS } from '../constants';
+import { GALLERY_YEARS, EXTERNAL_LINKS } from '../constants';
 import { ArrowLeft, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 // Standardized smooth transition - Slower and more relaxed
@@ -179,6 +179,37 @@ const Gallery: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {!activeId && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, ...TRANSITION }}
+              className="mt-24 max-w-4xl mx-auto"
+            >
+              <div className="bg-white/40 backdrop-blur-sm border border-stone-100 rounded-xl p-8 md:p-12 shadow-soft">
+                <h3 className="font-serif text-2xl font-bold text-charcoal mb-8 text-center uppercase tracking-widest">
+                  Kapcsolódó Linkek
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                  {EXTERNAL_LINKS.map((link, idx) => (
+                    <a
+                      key={idx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-start gap-3 transition-colors hover:bg-white/40 p-2 rounded-lg -mx-2"
+                    >
+                      <span className="text-earth mt-1">↗</span>
+                      <span className="font-serif text-lg text-charcoal/80 group-hover:text-earth transition-colors border-b border-transparent group-hover:border-earth/30">
+                        {link.title}
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
 
