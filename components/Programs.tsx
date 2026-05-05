@@ -71,7 +71,7 @@ const Programs: React.FC = () => {
               <div className="bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl p-5">
                 <p className="text-xs font-bold uppercase tracking-widest text-earth mb-3">Jegyek</p>
                 <p className="text-sm text-charcoal/70 mb-4 leading-relaxed">
-                  Jegyek igényelhetők a helyi waldorf iskolában és az alábbi elérhetőségeken:
+                  Jegyek igényelhetők a helyi Waldorf iskolában és az alábbi elérhetőségeken:
                 </p>
                 <div className="flex flex-col gap-3">
                   <a href="tel:+36706327494" className="flex items-center gap-2 text-charcoal font-bold hover:text-earth transition-colors text-sm">
@@ -102,7 +102,7 @@ const Programs: React.FC = () => {
                   Angyalföldi József Attila Művelődési Központ
                 </p>
                 <p className="font-sans text-charcoal/70 text-base">
-                  1113 Budapest, József Attila tér 4.
+                  1131 Budapest, József Attila tér 4.
                 </p>
               </div>
 
