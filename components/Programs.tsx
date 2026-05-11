@@ -142,7 +142,7 @@ const Programs: React.FC = () => {
               <div className="md:col-span-2">
                 <p className="text-xs font-bold uppercase tracking-widest text-earth mb-3">Közreműködnek</p>
                 <p className="font-serif text-charcoal/70 text-sm leading-relaxed">
-                  Varga Máté zongorán, Sárréti Márton hegedűn,<br />
+                  Varga Máté zongorán, Németh Gábor hegedűn,<br />
                   Csósza Anna Cecília brácsán és Tóth Barnabás csellón.<br />
                   A verseket <span className="font-semibold text-charcoal/80">Rácz Rita Cecília</span> mondja el.<br />
                   Világítás – <span className="font-semibold text-charcoal/80">Felkuti Károly</span>.
