@@ -5,6 +5,14 @@ import { GALLERY_YEARS } from '../constants';
 const CAROUSEL_ITEMS = [
   {
     type: 'image',
+    src: '/programs/1000006386.jpg',
+    target: '#kepzesek',
+    alt: 'Euritmia Művésztanári Képzés 2026 plakát',
+    imgClass: 'object-top',
+    hint: 'Tovább a képzésekre'
+  },
+  {
+    type: 'image',
     src: '/programs/EURITMIA_VIZSGAELOADAS_2026_JAM.jpg',
     target: '#programok',
     alt: 'Vizsgaelőadás 2026 plakát',
@@ -34,8 +42,8 @@ const CAROUSEL_ITEMS = [
   },
   {
     type: 'text',
-    subtitle: 'A MAGYAR EURITMIA TÁRSASÁG',
-    title: 'ÚJ MŰVÉSZTANÁRI\nKÉPZÉST INDÍT!',
+    subtitle: 'A MAGYAR EURITMIA-MOZGÁSMŰVÉSZETI TÁRSASÁG',
+    title: 'EURITMIA MŰVÉSZTANÁRI\nKÉPZÉST INDÍT!',
     target: '#kepzesek',
     bgClass: 'bg-gradient-to-br from-charcoal to-stone-700 text-white',
     alt: 'Képzések'
@@ -147,12 +155,12 @@ const Hero: React.FC = () => {
       <div
         className={`mb-8 md:mb-12 z-20 transition-all duration-[1000ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] transform cursor-pointer origin-center ${showNotification ? 'scale-100 opacity-100' : 'scale-x-[0.2] scale-y-[0.1] opacity-0'
           }`}
-        onClick={() => window.location.hash = '#programok'}
+        onClick={() => window.location.hash = '#kepzesek'}
       >
-        <div className="bg-gradient-to-r from-earthDark to-earth text-white px-4 py-3 sm:px-6 sm:py-3 md:px-6 md:py-4 rounded-full shadow-2xl flex flex-row items-center gap-2 sm:gap-8 md:gap-12 hover:scale-[1.03] transition-transform border border-white/20 group">
+        <div className="bg-gradient-to-r from-charcoal to-stone-700 text-white px-4 py-3 sm:px-6 sm:py-3 md:px-6 md:py-4 rounded-full shadow-2xl flex flex-row items-center gap-2 sm:gap-8 md:gap-12 hover:scale-[1.03] transition-transform border border-white/20 group">
           <span className="font-serif font-bold tracking-wide drop-shadow-md whitespace-nowrap">
-            <span className="sm:hidden text-[14px] uppercase">Vizsgaelőadás jegyek</span>
-            <span className="hidden sm:inline text-base md:text-xl">VIZSGAELŐADÁS jegyek elérhetőek</span>
+            <span className="sm:hidden text-[14px] uppercase">Művésztanári Képzés 2026</span>
+            <span className="hidden sm:inline text-base md:text-xl">MŰVÉSZTANÁRI KÉPZÉS indul 2026 őszén!</span>
           </span>
           <div className="bg-white/20 backdrop-blur-sm rounded-full px-3 py-1 sm:px-4 sm:py-1.5 text-[10px] sm:text-xs md:text-sm font-bold uppercase tracking-wide flex items-center gap-1 sm:gap-2 group-hover:bg-white/30 transition-colors border border-white/10 shrink-0">
             Megnézem <ArrowRight className="w-6 h-6 md:w-4 md:h-4" />
