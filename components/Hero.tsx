@@ -40,14 +40,7 @@ const CAROUSEL_ITEMS = [
     bgClass: 'bg-gradient-to-br from-earthDark to-earth text-white',
     alt: 'Programok'
   },
-  {
-    type: 'text',
-    subtitle: 'A MAGYAR EURITMIA-MOZGÁSMŰVÉSZETI TÁRSASÁG',
-    title: 'EURITMIA MŰVÉSZTANÁRI\nKÉPZÉST INDÍT!',
-    target: '#kepzesek',
-    bgClass: 'bg-gradient-to-br from-charcoal to-stone-700 text-white',
-    alt: 'Képzések'
-  },
+
   {
     type: 'text',
     title: 'Támogassa társaságunkat\nadója 1%-val',
