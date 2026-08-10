@@ -157,7 +157,7 @@ const Hero: React.FC = () => {
           }`}
         onClick={() => window.location.hash = '#kepzesek'}
       >
-        <div className="bg-gradient-to-r from-charcoal to-stone-700 text-white px-4 py-3 sm:px-6 sm:py-3 md:px-6 md:py-4 rounded-full shadow-2xl flex flex-row items-center gap-2 sm:gap-8 md:gap-12 hover:scale-[1.03] transition-transform border border-white/20 group">
+        <div className="bg-gradient-to-r from-earthDark to-earth text-white px-4 py-3 sm:px-6 sm:py-3 md:px-6 md:py-4 rounded-full shadow-2xl flex flex-row items-center gap-2 sm:gap-8 md:gap-12 hover:scale-[1.03] transition-transform border border-white/20 group">
           <span className="font-serif font-bold tracking-wide drop-shadow-md whitespace-nowrap">
             <span className="sm:hidden text-[14px] uppercase">Művésztanári Képzés 2026</span>
             <span className="hidden sm:inline text-base md:text-xl">MŰVÉSZTANÁRI KÉPZÉS indul 2026 őszén!</span>

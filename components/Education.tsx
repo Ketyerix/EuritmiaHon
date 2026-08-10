@@ -53,43 +53,38 @@ const Education: React.FC = () => {
                 <h3 className="font-serif text-3xl md:text-4xl font-bold text-charcoal leading-tight tracking-wide uppercase">
                   EURITMIA
                 </h3>
-                <h3 className="font-serif text-2xl md:text-3xl font-bold text-earth leading-tight tracking-wide uppercase mb-2">
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-earth leading-tight tracking-wide uppercase">
                   MŰVÉSZTANÁRI KÉPZÉS
                 </h3>
+                <p className="font-serif text-lg font-semibold text-earth/70 mt-1 mb-1">2026. ősz</p>
                 <p className="font-sans text-charcoal/60 text-sm uppercase tracking-widest">
                   A Magyar Euritmia-Mozgásművészeti Társaság
                 </p>
               </div>
 
-              {/* Start date */}
-              <div className="inline-block bg-earth/10 border border-earth/30 rounded-xl px-5 py-3">
-                <p className="text-xs font-bold uppercase tracking-widest text-earth mb-1">Kezdés</p>
-                <p className="font-serif text-2xl font-bold text-charcoal">2026. <span className="text-earth">ősz</span></p>
-              </div>
-
-              {/* Admission info */}
-              <div className="bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl p-5">
-                <p className="text-xs font-bold uppercase tracking-widest text-earth mb-3">Felvételi</p>
+              {/* Felvételi — upper box, earth/brown style */}
+              <div className="bg-earth/10 border border-earth/30 rounded-2xl p-4">
+                <p className="text-xs font-bold uppercase tracking-widest text-earth mb-2">Felvételi</p>
                 <p className="text-sm text-charcoal/70 leading-relaxed">
                   A felvételi beszélgetésre és gyakorlati napra előre egyeztetett időpontban kerül majd sor.
                 </p>
               </div>
 
+              {/* Jelentkezés — lower box */}
+              <div className="bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl p-4">
+                <p className="text-xs font-bold uppercase tracking-widest text-earth mb-2">Jelentkezés</p>
+                <p className="text-sm text-charcoal/70 mb-2 leading-relaxed">fényképes önéletrajzzal és motivációs levéllel</p>
+                <a href="mailto:huneuritmia@gmail.com" className="font-bold text-earth text-base hover:text-earthDark transition-colors">
+                  huneuritmia@gmail.com
+                </a>
+              </div>
+
             </div>
           </div>
 
-          {/* Signup block — full width, centered below the two columns */}
-          <div className="max-w-4xl mx-auto mt-8">
-            <div className="bg-white/60 backdrop-blur-sm border border-stone-200 rounded-2xl p-6 text-center">
-              <p className="text-xs font-bold uppercase tracking-widest text-earth mb-3">Jelentkezés</p>
-              <p className="text-sm text-charcoal/70 mb-3 leading-relaxed">
-                fényképes önéletrajzzal és motivációs levéllel
-              </p>
-              <a href="mailto:huneuritmia@gmail.com" className="font-bold text-earth text-xl hover:text-earthDark transition-colors block mb-3">
-                huneuritmia@gmail.com
-              </a>
-              <p className="italic text-charcoal/50 text-sm">Minden érdeklődő jelentkezését várjuk!</p>
-            </div>
+          {/* Footer text — centered below the two columns */}
+          <div className="max-w-4xl mx-auto mt-6 text-center">
+            <p className="italic text-charcoal/50 text-sm">Minden érdeklődő jelentkezését várjuk!</p>
           </div>
 
         </div>
