@@ -51,14 +51,24 @@ const Gallery: React.FC = () => {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (lightboxIndex === null) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
+      if (lightboxIndex === null || !activeData) return;
+      if (e.key === 'Escape') {
+        setLightboxIndex(null);
+        document.body.style.overflow = 'unset';
+      } else if (e.key === 'ArrowRight') {
+        setLightboxIndex((prev) => (prev! + 1) % activeData.fullGallery.length);
+      } else if (e.key === 'ArrowLeft') {
+        setLightboxIndex((prev) => (prev! - 1 + activeData.fullGallery.length) % activeData.fullGallery.length);
+      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex, activeData]);
+
+  // Restore body scroll if component unmounts while lightbox is open
+  useEffect(() => {
+    return () => { document.body.style.overflow = 'unset'; };
+  }, []);
 
   return (
     <>
@@ -181,7 +191,7 @@ const Gallery: React.FC = () => {
           </AnimatePresence>
 
           {!activeId && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, ...TRANSITION }}

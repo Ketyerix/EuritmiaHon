@@ -2,6 +2,7 @@ import React from 'react';
 import NaturaSophia from '../Logos/natura-sophia.jpg';
 import Freunde from '../Logos/Freunde.jpg';
 import Veszprem from '../Logos/veszprem-balaton-2023.jpg';
+import { SPONSORS } from '../constants';
 
 const Sponsors: React.FC = () => {
     return (
@@ -19,7 +20,7 @@ const Sponsors: React.FC = () => {
                         Külföldi támogatóink:
                     </h3>
                     <p className="text-charcoal/70 text-base md:text-lg max-w-4xl mx-auto leading-relaxed">
-                        Freunde der Erziehungskunst, Hauserstiftung, Verein zur Förderung Anthroposophischer Art és Kunst
+                        {SPONSORS.foreign}
                     </p>
                 </div>
 
@@ -29,7 +30,7 @@ const Sponsors: React.FC = () => {
                         Köszönjük a belföldi szervezetek támogatását is:
                     </h3>
                     <p className="text-charcoal/70 text-base md:text-lg max-w-4xl mx-auto">
-                        Natura-Sophia, Veszprém-Balaton 2023
+                        {SPONSORS.domestic}
                     </p>
                 </div>
 

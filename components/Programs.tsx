@@ -1,30 +1,6 @@
 import React from 'react';
 import { Mail, Phone } from 'lucide-react';
-
-const POETS = [
-  'Ady Endre',
-  'Babits Mihály',
-  'La Fontaine',
-  'J. W. von Goethe',
-  'Juhász Gyula',
-  'C. F. Meyer',
-  'P. B. Shelley',
-  'Szabó T. Anna',
-  'Weöres Sándor',
-];
-
-const COMPOSERS = [
-  'J. S. Bach',
-  'Bartók Béla',
-  'J. Brahms',
-  'C. Debussy',
-  'P. Hindemith',
-  'Kodály Zoltán',
-  'O. Messiaen',
-  'W. A. Mozart',
-  'M. Ravel',
-  'D. Sosztakovics',
-];
+import { POETS, COMPOSERS } from '../constants';
 
 const Programs: React.FC = () => {
   return (

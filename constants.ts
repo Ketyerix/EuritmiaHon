@@ -1,5 +1,4 @@
 import { GalleryYear } from './types';
-import React from 'react';
 
 export const NAV_LINKS = [
   { name: 'Kezdőlap', href: '#' },
@@ -30,6 +29,45 @@ export const EXTERNAL_LINKS = [
   { title: "Waldorf Nap a Műcsarnokban (PDF)", url: "https://waldorf-godollo.hu/wp-content/uploads/2019/02/Waldorf-Nap-a-Műcsarnokban.pdf" },
   { title: "Magyar Építőművészet: Euritmia", url: "https://meonline.hu/utoirat/euritmia/" }
 ];
+
+export const TEACHERS = [
+  { name: 'Scheily Mária', degree: 'végzett: Bécs, Dornach' },
+  { name: 'Szentmártony Yvonne', degree: 'végzett: Dornach' },
+  { name: 'Mihálcz Dóra', degree: 'végzett: Budapest' },
+  { name: 'Cserháti Katalin', degree: 'végzett: Budapest' },
+  { name: 'Balogh Orsolya', degree: 'végzett: Budapest' },
+  { name: 'Vidákovich Emese', degree: 'végzett: Budapest' },
+];
+
+export const POETS = [
+  'Ady Endre',
+  'Babits Mihály',
+  'La Fontaine',
+  'J. W. von Goethe',
+  'Juhász Gyula',
+  'C. F. Meyer',
+  'P. B. Shelley',
+  'Szabó T. Anna',
+  'Weöres Sándor',
+];
+
+export const COMPOSERS = [
+  'J. S. Bach',
+  'Bartók Béla',
+  'J. Brahms',
+  'C. Debussy',
+  'P. Hindemith',
+  'Kodály Zoltán',
+  'O. Messiaen',
+  'W. A. Mozart',
+  'M. Ravel',
+  'D. Sosztakovics',
+];
+
+export const SPONSORS = {
+  foreign: 'Freunde der Erziehungskunst, Hauserstiftung, Verein zur Förderung Anthroposophischer Art és Kunst',
+  domestic: 'Natura-Sophia, Veszprém-Balaton 2023',
+};
 
 export const HOME_ARTICLES = [
   {

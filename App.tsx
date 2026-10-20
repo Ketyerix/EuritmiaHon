@@ -11,7 +11,6 @@ import Footer from './components/Footer';
 import CursorEffect from './components/ui/CursorEffect';
 
 const App: React.FC = () => {
-  // Initialize view based on current hash
   // Determine initial view based on hash
   const getInitialView = (): 'home' | 'program' | 'education' | 'supporters' => {
     // Only route to specific pages if the hash strictly matches. 
@@ -28,10 +27,10 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
-      
+
       if (hash === '#programok') {
         setView('program');
-        window.scrollTo(0, 0); 
+        window.scrollTo(0, 0);
       } else if (hash === '#kepzesek') {
         setView('education');
         window.scrollTo(0, 0);
@@ -53,18 +52,18 @@ const App: React.FC = () => {
     if (view === 'home') {
       const hash = window.location.hash;
       const isSeparatePage = hash === '#programok' || hash === '#kepzesek' || hash === '#supporters';
-      
+
       // If we are on home view, check if we need to scroll to a section (like #articles)
       if (hash && !isSeparatePage) {
         // Small delay to ensure DOM is ready for internal linking
         setTimeout(() => {
           const targetElement = document.querySelector(hash);
           if (targetElement) {
-             targetElement.scrollIntoView({ behavior: 'smooth' });
+            targetElement.scrollIntoView({ behavior: 'smooth' });
           }
-        }, 100); 
+        }, 100);
       } else if (!hash) {
-         window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
   }, [view]);
@@ -73,12 +72,12 @@ const App: React.FC = () => {
     <div className="relative min-h-screen bg-paper text-charcoal overflow-x-hidden selection:bg-earth/20">
       {/* Global Noise Texture Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[1] bg-noise mix-blend-multiply opacity-70" />
-      
+
       {/* Background Cursor Effect */}
       <CursorEffect />
 
       <Navbar />
-      
+
       <main className="relative z-10">
         {view === 'home' && (
           <div className="animate-fade-in-up">
@@ -88,7 +87,7 @@ const App: React.FC = () => {
             <Sponsors />
           </div>
         )}
-        
+
         {view === 'program' && (
           <div className="animate-fade-in-up">
             <Programs />
@@ -107,7 +106,7 @@ const App: React.FC = () => {
           </div>
         )}
       </main>
-      
+
       <Footer />
     </div>
   );

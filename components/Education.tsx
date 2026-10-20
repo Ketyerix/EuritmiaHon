@@ -1,13 +1,5 @@
 import React from 'react';
-
-const TEACHERS = [
-  { name: 'Scheily Mária', degree: 'végzett: Bécs, Dornach' },
-  { name: 'Szentmártony Yvonne', degree: 'végzett: Dornach' },
-  { name: 'Mihálcz Dóra', degree: 'végzett: Budapest' },
-  { name: 'Cserháti Katalin', degree: 'végzett: Budapest' },
-  { name: 'Balogh Orsolya', degree: 'végzett: Budapest' },
-  { name: 'Vidákovich Emese', degree: 'végzett: Budapest' },
-];
+import { TEACHERS } from '../constants';
 
 const Education: React.FC = () => {
   return (

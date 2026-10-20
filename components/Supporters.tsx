@@ -1,6 +1,6 @@
 import React from 'react';
-import { REPORT_YEARS } from '../constants';
-import { FileDown, Heart, Info, CreditCard, Mail } from 'lucide-react';
+import { REPORT_YEARS, SPONSORS } from '../constants';
+import { FileDown, Heart, Info, CreditCard } from 'lucide-react';
 
 const Supporters: React.FC = () => {
   return (
@@ -221,12 +221,12 @@ const Supporters: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center items-center gap-12 text-charcoal/70">
             <div className="max-w-xs">
               <p className="font-bold mb-2">Külföldi támogatóink:</p>
-              <p className="italic text-sm">Freunde der Erziehungskunst, Hauserstiftung, Verein zur Förderung Anthroposophischer Art és Kunst</p>
+              <p className="italic text-sm">{SPONSORS.foreign}</p>
             </div>
             <div className="h-px w-24 md:w-px md:h-16 bg-charcoal/20" />
             <div className="max-w-xs">
               <p className="font-bold mb-2">Belföldi támogatóink:</p>
-              <p className="italic text-sm">Natura-Sophia, Veszprém-Balaton 2023</p>
+              <p className="italic text-sm">{SPONSORS.domestic}</p>
             </div>
           </div>
         </div>

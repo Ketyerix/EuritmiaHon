@@ -75,7 +75,9 @@ const Hero: React.FC = () => {
   // Auto rotate
   useEffect(() => {
     if (isHovering) return;
-    const interval = setInterval(nextSlide, 4000);
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % CAROUSEL_ITEMS.length);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isHovering]);
 
@@ -175,8 +177,7 @@ const Hero: React.FC = () => {
           return (
             <div
               key={index}
-              className={`absolute w-[240px] md:w-[480px] h-[170px] md:h-[320px] transition-all duration-700 ease-in-out shadow-2xl overflow-hidden rounded-[1.5rem] group flex flex-col items-center justify-center ${isActive ? 'cursor-pointer' : 'cursor-pointer'
-                }`}
+              className="absolute w-[240px] md:w-[480px] h-[170px] md:h-[320px] transition-all duration-700 ease-in-out shadow-2xl overflow-hidden rounded-[1.5rem] group flex flex-col items-center justify-center cursor-pointer"
               style={getStyle(index)}
               onClick={() => handleItemClick(index, item.target)}
             >
