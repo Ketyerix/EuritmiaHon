@@ -6,6 +6,7 @@ export interface GalleryYear {
   title: string;
   coverImage: string;
   fullGallery: string[];
+  videoLinks?: Record<string, string>;
 }
 
 export interface Sponsor {

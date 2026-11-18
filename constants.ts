@@ -374,7 +374,10 @@ export const GALLERY_YEARS: GalleryYear[] = [
     coverImage: '/gallery/2026/ArtemiszCover.jpg',
     fullGallery: [
       '/gallery/2026/ArtemiszCover.jpg',
-    ]
+    ],
+    videoLinks: {
+      '/gallery/2026/ArtemiszCover.jpg': 'https://www.youtube.com/watch?v=tCd8QuSBrPw'
+    }
   },
   {
     id: '2025',

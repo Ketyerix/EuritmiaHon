@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GALLERY_YEARS, EXTERNAL_LINKS } from '../constants';
-import { ArrowLeft, ChevronLeft, ChevronRight, X } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, X, Play } from 'lucide-react';
 
 // Standardized smooth transition - Slower and more relaxed
 const TRANSITION = { duration: 0.8, ease: [0.4, 0, 0.2, 1] as [number, number, number, number] };
@@ -159,23 +159,41 @@ const Gallery: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {activeData?.fullGallery.map((img, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: index * 0.05, duration: 0.5, ease: 'easeOut' }}
-                      className="aspect-[4/3] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all bg-stone-100 cursor-zoom-in"
-                      onClick={() => openLightbox(index)}
-                    >
-                      <img
-                        src={img}
-                        alt={`${activeData?.title} ${index + 1}`}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                      />
-                    </motion.div>
-                  ))}
+                  {activeData?.fullGallery.map((img, index) => {
+                    const videoUrl = activeData?.videoLinks?.[img];
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: index * 0.05, duration: 0.5, ease: 'easeOut' }}
+                        className={`aspect-[4/3] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all bg-stone-100 ${
+                          videoUrl ? 'cursor-pointer relative group' : 'cursor-zoom-in'
+                        }`}
+                        onClick={() => {
+                          if (videoUrl) {
+                            window.open(videoUrl, '_blank', 'noopener,noreferrer');
+                          } else {
+                            openLightbox(index);
+                          }
+                        }}
+                      >
+                        <img
+                          src={img}
+                          alt={`${activeData?.title} ${index + 1}`}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                        {videoUrl && (
+                          <div className="absolute inset-0 flex items-center justify-center bg-black/10 pointer-events-none">
+                            <div className="w-16 h-16 bg-earth rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 group-hover:bg-earthDark transition-all duration-300 shadow-lg">
+                              <Play className="w-6 h-6 text-white fill-white ml-1" />
+                            </div>
+                          </div>
+                        )}
+                      </motion.div>
+                    );
+                  })}
                 </div>
 
                 <div className="mt-12 flex justify-center">

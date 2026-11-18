@@ -33,7 +33,7 @@ const CAROUSEL_ITEMS = [
   },
   {
     type: 'image',
-    src: GALLERY_YEARS[0].coverImage,
+    src: GALLERY_YEARS.find(y => y.id === '2025')?.coverImage || '/gallery/2025/DSC03954.jpg',
     target: '#gallery',
     alt: 'Galéria',
     hint: 'Galéria megtekintése'
