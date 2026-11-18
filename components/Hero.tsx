@@ -4,6 +4,12 @@ import { GALLERY_YEARS } from '../constants';
 
 const CAROUSEL_ITEMS = [
   {
+    type: 'video',
+    src: 'https://img.youtube.com/vi/tCd8QuSBrPw/maxresdefault.jpg',
+    link: 'https://www.youtube.com/watch?v=tCd8QuSBrPw',
+    alt: 'Artemisz Euritmia Színpad: Beethoven 2. szimfónia'
+  },
+  {
     type: 'image',
     src: '/programs/1000006386.jpg',
     target: '#kepzesek',

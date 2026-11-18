@@ -368,6 +368,15 @@ export const HOME_ARTICLES = [
 
 export const GALLERY_YEARS: GalleryYear[] = [
   {
+    id: '2026',
+    year: 2026,
+    title: '2026-os előadások',
+    coverImage: '/gallery/2026/ArtemiszCover.jpg',
+    fullGallery: [
+      '/gallery/2026/ArtemiszCover.jpg',
+    ]
+  },
+  {
     id: '2025',
     year: 2025,
     title: '2025-ös előadások',
@@ -424,15 +433,5 @@ export const GALLERY_YEARS: GalleryYear[] = [
     fullGallery: [
       '/gallery/Hamarosan4.jpg',
     ]
-  },
-  {
-    id: '2020',
-    year: 2020,
-    title: '2020-as előadások',
-    coverImage: '/gallery/Hamarosan5.jpg',
-    fullGallery: [
-      '/gallery/Hamarosan5.jpg',
-    ]
   }
-
 ];
